@@ -27,9 +27,10 @@ jobs:
       - run: node scripts/build-site.mjs
 
   deploy:
-    # One deploy publishes both the website and the multiplayer server to Cloudflare.
+    # Retired 2026-10-14: the live site now deploys from RIVL-Poker/RIVL. This backup must never deploy,
+    # or it would overwrite the live Worker with older code.
     needs: test
-    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    if: false
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
